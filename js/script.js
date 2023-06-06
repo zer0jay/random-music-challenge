@@ -152,7 +152,8 @@ const prefixes = [
   "stupid",
   "genius",
   "sleepy",
-  "generic"
+  "generic",
+  "unhinged",
 ];
 
 const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
