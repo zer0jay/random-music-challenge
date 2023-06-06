@@ -44,7 +44,9 @@ const genres = [
   "reggae",
   "ska",
   "gospel",
-  "breakbeat"
+  "breakbeat",
+  "bounce",
+  "edm"
 ];
 
 const prefixes = [
@@ -148,7 +150,9 @@ const prefixes = [
   "random",
   "edgy",
   "stupid",
-  "genius"
+  "genius",
+  "sleepy",
+  "generic"
 ];
 
 const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
