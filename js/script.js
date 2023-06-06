@@ -91,6 +91,8 @@ function getRandomFeel(min, max) {
   return generatedFeel;
 }
 
+// calculate total number of possible combinations
+
 // button functionality
 btnRandom.addEventListener('click', () => {
   let generatedPrefix = getRandomPrefix(0, prefixes.length-1);

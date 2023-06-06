@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+}
+
+.container {
+  display: flex;
+  width: 50vw;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  size: 0.5rem;
+}
+
+span {
+  text-transform: capitalize;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
