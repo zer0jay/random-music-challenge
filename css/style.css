@@ -3,7 +3,9 @@
   font-family: "Rubik", sans-serif;
 }
 
-body {
+body.dark-theme {
+  background-color: #000000;
+  color: white;
 }
 
 .container {

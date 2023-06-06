@@ -1,4 +1,5 @@
 let btnRandom = document.querySelector('.btn');
+let btnLightDark = document.querySelector('.btn-light-dark');
 let prompt = document.querySelector('h2');
 let randomPrefix = document.querySelector('.randomPrefix');
 let randomGenre = document.querySelector('.randomGenre');
@@ -154,6 +155,11 @@ const prefixes = [
   "sleepy",
   "generic",
   "unhinged",
+  "8-bit",
+  "bouncy",
+  "gravitational",
+  "monochromatic",
+  "atheist"
 ];
 
 const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
@@ -218,6 +224,10 @@ btnRandom.addEventListener('click', () => {
   btnRandom.innerText = "Reroll?";
 });
 
+btnLightDark.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+  }
+);
 
 
 
