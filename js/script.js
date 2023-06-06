@@ -54,19 +54,6 @@ const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
 
 const feels = ["major", "minor"];
 
-/*
-
-OG function
-
-function getRandomNumber(min, max) {
-  let step1 = max - min + 1;
-  let step2 = Math.random() * step1;
-  let result = Math.floor(step2) + min;
-
-  return result;
-}
-*/
-
 // generate random prefix
 function getRandomPrefix(min, max) {
   let step1 = max - min + 1;
@@ -93,6 +80,9 @@ function getRandomNote(min, max) {
   return generatedNote;
 }
 
+
+
+// generate feel
 function getRandomFeel(min, max) {
   let step1 = max - min + 1;
   let step2 = Math.random() * step1;
@@ -100,8 +90,6 @@ function getRandomFeel(min, max) {
 
   return generatedFeel;
 }
-
-// generate random major/minor
 
 // button functionality
 btnRandom.addEventListener('click', () => {
@@ -122,14 +110,7 @@ btnRandom.addEventListener('click', () => {
   btnRandom.innerText = "Reroll?";
 });
 
-// OG function
-/*
-btnRandom.addEventListener('click', () => {
-  let index = getRandomNumber(0, notes.length-1); :: generating the random element
-  result.innerText = notes[index]; :: changing the text to the result
-  btnRandom.innerText = "Reroll?";
-})
-*/
+
 
 
 
