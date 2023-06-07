@@ -8,6 +8,13 @@ body.dark-theme {
   color: white;
 }
 
+.btn-light-dark {
+  padding: 2px 2px;
+  width: 50px;
+  border-radius: 10px;
+  font-size: 8px;
+}
+
 .container {
   display: flex;
   width: 50%;

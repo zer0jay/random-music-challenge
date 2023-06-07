@@ -6,6 +6,9 @@ let randomGenre = document.querySelector('.randomGenre');
 let randomNote = document.querySelector('.randomNote');
 let randomFeel = document.querySelector('.randomFeel');
 let keyOf = document.querySelector('.keyOf');
+let possibilities = document.querySelector('.possibilities');
+let totalCombinations;
+
 
 
 const genres = [
@@ -159,7 +162,11 @@ const prefixes = [
   "bouncy",
   "gravitational",
   "monochromatic",
-  "atheist"
+  "atheist",
+  "dad",
+  "soccer mom",
+  "arrogant",
+  "insane",
 ];
 
 const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
@@ -176,7 +183,7 @@ function getRandomPrefix(min, max) {
 }
 
 // generate random genre
-function getRandomGenre(min, max) {
+const getRandomGenre = (min, max) => {
   let step1 = max - min + 1;
   let step2 = Math.random() * step1;
   let generatedGenre = Math.floor(step2) + min;
@@ -204,6 +211,10 @@ function getRandomFeel(min, max) {
 }
 
 // calculate total number of possible combinations
+function calculateTotalPossiblilities() {
+   totalCombinations = prefixes.length * genres.length * notes.length * feels.length;
+    return totalCombinations;
+}
 
 // button functionality
 btnRandom.addEventListener('click', () => {
@@ -226,8 +237,10 @@ btnRandom.addEventListener('click', () => {
 
 btnLightDark.addEventListener('click', () => {
   document.body.classList.toggle('dark-theme');
-  }
-);
+  });
+
+calculateTotalPossiblilities();
+possibilities.innerText = totalCombinations;
 
 
 
