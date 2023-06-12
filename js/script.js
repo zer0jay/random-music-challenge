@@ -50,7 +50,8 @@ const genres = [
   "gospel",
   "breakbeat",
   "bounce",
-  "edm"
+  "edm",
+  "djent"
 ];
 
 const prefixes = [
@@ -166,7 +167,7 @@ const prefixes = [
   "dad",
   "soccer mom",
   "arrogant",
-  "insane",
+  "insane"
 ];
 
 const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
@@ -232,7 +233,7 @@ btnRandom.addEventListener('click', () => {
 
   prompt.innerText = "Your challenge is:";
   keyOf.innerText = "in the key of";
-  btnRandom.innerText = "Reroll?";
+  btnRandom.innerText = "Too hard? Wanna give up and reroll?";
 });
 
 btnLightDark.addEventListener('click', () => {
