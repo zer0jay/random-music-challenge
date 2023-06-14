@@ -8,6 +8,9 @@ let randomFeel = document.querySelector('.randomFeel');
 let keyOf = document.querySelector('.keyOf');
 let possibilities = document.querySelector('.possibilities');
 let totalCombinations;
+let count = 0;
+
+document.body.className = 'light-theme';
 
 
 
@@ -174,41 +177,13 @@ const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
 
 const feels = ["major", "minor"];
 
-// generate random prefix
-function getRandomPrefix(min, max) {
+// generate random number
+const getRandom = (min, max) => {
   let step1 = max - min + 1;
   let step2 = Math.random() * step1;
-  let generatedPrefix = Math.floor(step2) + min;
+  let randomNumber = Math.floor(step2) + min;
 
-  return generatedPrefix;
-}
-
-// generate random genre
-const getRandomGenre = (min, max) => {
-  let step1 = max - min + 1;
-  let step2 = Math.random() * step1;
-  let generatedGenre = Math.floor(step2) + min;
-
-  return generatedGenre;
-}
-// generate random note
-function getRandomNote(min, max) {
-  let step1 = max - min + 1;
-  let step2 = Math.random() * step1;
-  let generatedNote = Math.floor(step2) + min;
-
-  return generatedNote;
-}
-
-
-
-// generate feel
-function getRandomFeel(min, max) {
-  let step1 = max - min + 1;
-  let step2 = Math.random() * step1;
-  let generatedFeel = Math.floor(step2) + min;
-
-  return generatedFeel;
+  return randomNumber;
 }
 
 // calculate total number of possible combinations
@@ -219,16 +194,16 @@ function calculateTotalPossiblilities() {
 
 // button functionality
 btnRandom.addEventListener('click', () => {
-  let generatedPrefix = getRandomPrefix(0, prefixes.length-1);
+  let generatedPrefix = getRandom(0, prefixes.length-1);
   randomPrefix.innerText = prefixes[generatedPrefix];
 
-  let generatedGenre = getRandomGenre(0, genres.length-1);
+  let generatedGenre = getRandom(0, genres.length-1);
   randomGenre.innerText = genres[generatedGenre];
 
-  let generatedNote = getRandomNote(0, notes.length-1);
+  let generatedNote = getRandom(0, notes.length-1);
   randomNote.innerText = notes[generatedNote];
 
-  let generatedFeel = getRandomFeel(0, feels.length-1);
+  let generatedFeel = getRandom(0, feels.length-1);
   randomFeel.innerText = feels[generatedFeel];
 
   prompt.innerText = "Your challenge is:";
@@ -236,12 +211,24 @@ btnRandom.addEventListener('click', () => {
   btnRandom.innerText = "Too hard? Wanna give up and reroll?";
 });
 
-btnLightDark.addEventListener('click', () => {
-  document.body.classList.toggle('dark-theme');
-  });
+// light mode/dark mode functionality, need to implement svg logos
+//btnLightDark.addEventListener('click', () => {
+  //document.body.classList.toggle('dark-theme');
+  //});
 
-calculateTotalPossiblilities();
-possibilities.innerText = totalCombinations;
+btnLightDark.addEventListener('click', () => {
+  console.log(count);
+  count+= 1;
+
+  if (count % 2 === 0) {
+    document.body.className = ('light-theme');
+  } else {
+    document.body.className = ('dark-theme');
+  }
+});
+
+// display total number of possible challenges
+possibilities.innerText = calculateTotalPossiblilities();
 
 
 

@@ -49,6 +49,10 @@ span {
   text-transform: lowercase;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 footer {
   margin-top: 5%;
   text-align: center;
