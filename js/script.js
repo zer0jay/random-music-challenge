@@ -1,5 +1,5 @@
 let btnRandom = document.querySelector('.btn');
-let btnLightDark = document.querySelector('.btn-light-dark');
+let btnToggle = document.querySelector('.btn-toggle');
 let prompt = document.querySelector('h2');
 let randomPrefix = document.querySelector('.randomPrefix');
 let randomGenre = document.querySelector('.randomGenre');
@@ -7,10 +7,15 @@ let randomNote = document.querySelector('.randomNote');
 let randomFeel = document.querySelector('.randomFeel');
 let keyOf = document.querySelector('.keyOf');
 let possibilities = document.querySelector('.possibilities');
+let themeIcon = document.querySelector('.theme-icon');
+let icon = document.querySelector('.icon');
 let totalCombinations;
 let count = 0;
 
+// initialize to light mode
 document.body.className = 'light-theme';
+btnToggle.className = 'btn-toggle btn-light';
+icon.src="./darkmode.svg";
 
 
 
@@ -211,19 +216,18 @@ btnRandom.addEventListener('click', () => {
   btnRandom.innerText = "Too hard? Wanna give up and reroll?";
 });
 
-// light mode/dark mode functionality, need to implement svg logos
-//btnLightDark.addEventListener('click', () => {
-  //document.body.classList.toggle('dark-theme');
-  //});
-
-btnLightDark.addEventListener('click', () => {
-  console.log(count);
+// light/dark mode functionality
+btnToggle.addEventListener('click', () => {
   count+= 1;
 
   if (count % 2 === 0) {
     document.body.className = ('light-theme');
+    btnToggle.className = ('btn-toggle btn-light');
+    icon.src="./darkmode.svg";
   } else {
     document.body.className = ('dark-theme');
+    btnToggle.className = ('btn-toggle btn-dark');
+    icon.src="./lightmode.svg";
   }
 });
 

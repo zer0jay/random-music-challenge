@@ -8,11 +8,37 @@ body.dark-theme {
   color: white;
 }
 
-.btn-light-dark {
-  padding: 2px 2px;
-  width: 50px;
+.btn-light {
+  padding: 0;
+  width: 5vw;
   border-radius: 10px;
   font-size: 8px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-dark {
+  padding: 0;
+  width: 5vw;
+  border-radius: 10px;
+  font-size: 8px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-light:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.btn-dark:hover {
+  background-color: rgb(50, 50, 50);
+}
+
+.icon {
+  height: 5vh;
+  width: auto;
 }
 
 .container {
@@ -25,7 +51,7 @@ body.dark-theme {
   text-align: center;
 }
 
-button {
+.btn {
   background-color: #41aea9;
   border: none;
   color: white;
