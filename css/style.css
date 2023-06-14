@@ -10,7 +10,7 @@ body.dark-theme {
 
 .btn-light {
   padding: 0;
-  width: 5vw;
+  width: max-content;
   border-radius: 10px;
   font-size: 8px;
   background-color: transparent;
@@ -20,7 +20,7 @@ body.dark-theme {
 
 .btn-dark {
   padding: 0;
-  width: 5vw;
+  width: max-content;
   border-radius: 10px;
   font-size: 8px;
   background-color: transparent;
