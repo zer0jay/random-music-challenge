@@ -83,3 +83,18 @@ footer {
   margin-top: 5%;
   text-align: center;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #34837f;
+}
+
+.gh-logo {
+  display: inline-block;
+  position: relative;
+  top: 2px;
+}
