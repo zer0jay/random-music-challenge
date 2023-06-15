@@ -175,7 +175,8 @@ const prefixes = [
   "dad",
   "soccer mom",
   "arrogant",
-  "insane"
+  "insane",
+  "abrasive"
 ];
 
 const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
