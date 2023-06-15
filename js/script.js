@@ -192,13 +192,15 @@ const getRandom = (min, max) => {
   return randomNumber;
 }
 
-// calculate total number of possible combinations
-function calculateTotalPossiblilities() {
-   totalCombinations = prefixes.length * genres.length * notes.length * feels.length;
-    return totalCombinations;
-}
 
-// button functionality
+// reusable function to multiply array lengths, used to calculate total number of possible challenges
+const calculate = (a, b, c, d) => {return a.length * b.length * c.length * d.length};
+
+
+// display total number of possible challenges
+possibilities.innerText = calculate(genres, prefixes, notes, feels);
+
+// challenge generation button functionality
 btnRandom.addEventListener('click', () => {
   let generatedPrefix = getRandom(0, prefixes.length-1);
   randomPrefix.innerText = prefixes[generatedPrefix];
@@ -232,8 +234,7 @@ btnToggle.addEventListener('click', () => {
   }
 });
 
-// display total number of possible challenges
-possibilities.innerText = calculateTotalPossiblilities();
+
 
 
 
