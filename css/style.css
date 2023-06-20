@@ -144,3 +144,9 @@ a:hover {
   animation: transition-delayed 0.5s forwards;
   animation-delay: 0.5s;
 }
+
+@media screen and (max-width: 750px) {
+  .prompt {
+    font-size: 1.2rem;
+  }
+}
