@@ -75,7 +75,7 @@ body.dark-theme {
   display: inline-block;
   font-size: 0.8rem;
   cursor: pointer;
-  margin: 5px;
+  margin: 10px;
 }
 
 button:hover {

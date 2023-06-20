@@ -16,17 +16,37 @@
   <button class="btn-toggle btn-light || btn-dark"><span class="theme-icon"><img class="icon" src=""></span></button>
   <div class="container">
     <h1 class="header">Random Music Challenge</h1>
-    <h2 class="prompt">Click the button to generate a random genre of music to test your production skills! There are
-      <span class="possibilities"></span> total possibilities!
+    <h2 class="prompt">Click the button to generate a random genre of music to test your production skills!
+      There are
+      <span class="possibilities"></span> possible challenges!
     </h2>
+
+
+
+
     <h3 class="challenge">
       <span class="randomPrefix"></span>
       <span class="randomGenre"></span>
       <span class="keyOf lowercase"></span>
       <span class="randomNote"></span>
       <span class="randomFeel"></span>
+      <span class="randomMode"></span>
     </h3>
-    <button class="btn">Generate</button>
+
+    <div class="options">How many adjectives?</div>
+    <div class="checkbox-container">
+
+      <input type="radio" name="adjective-option" value="one" id="radio-one">
+      <label for="one-adjective">One</label>
+      <input type="radio" name="adjective-option" value="two" id="radio-two">
+      <label for="two-adjectives">Two</label>
+      <input type="radio" name="adjective-option" value="three" id="radio-three">
+      <label for="three-adjectives">Three</label>
+    </div>
+    <div class="btn-container">
+      <button class="btn">Generate</button>
+    </div>
+
   </div>
   <footer>Developed by Jay Woodall &#x2022 <a href="https://www.github.com/zer0jay">zer0jay <img class="gh-logo"
         src="./github.svg" width="15"></a> &#x2022 2023</footer>

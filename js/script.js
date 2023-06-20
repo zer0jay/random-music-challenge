@@ -245,8 +245,8 @@ const getRandom = (min, max) => {
 const calculate = (a, b, c, d, e, f, g, h) => {return a * b * c * d * e * f * g * h};
 
 // display total number of possible challenges
-//possibilitiesBefore = calculate(genres.length, prefixes.length, notes.length, feels.length, 1, 1, 1, 1);
-possibilities.innerText = calculate(genres.length, prefixes.length, notes.length, feels.length, 1, 1, 1, 1).toLocaleString();
+possibilitiesBefore = calculate(genres.length, prefixes.length, notes.length, feels.length, 1, 1, 1, 1) * prefixes.length * prefixes.length * prefixes.length;
+possibilities.innerText = possibilitiesBefore.toLocaleString();
 
 // radio button functionality
 const radioButtonPrefixes = () => {
