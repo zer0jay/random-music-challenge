@@ -1,21 +1,43 @@
+//buttons
 let btnRandom = document.querySelector('.btn');
 let btnToggle = document.querySelector('.btn-toggle');
+let btnHardMode = document.querySelector('.hard-mode');
+
+// DOM objects
 let prompt = document.querySelector('h2');
 let randomPrefix = document.querySelector('.randomPrefix');
 let randomGenre = document.querySelector('.randomGenre');
 let randomNote = document.querySelector('.randomNote');
 let randomFeel = document.querySelector('.randomFeel');
+let randomMode = document.querySelector('.randomMode');
 let keyOf = document.querySelector('.keyOf');
 let possibilities = document.querySelector('.possibilities');
 let themeIcon = document.querySelector('.theme-icon');
 let icon = document.querySelector('.icon');
-let totalCombinations;
-let count = 0;
+let challenge = document.querySelector('.challenge');
 
-// initialize to light mode
-document.body.className = 'light-theme';
-btnToggle.className = 'btn-toggle btn-light';
-icon.src="./darkmode.svg";
+// global variables
+let totalCombinations;
+let count = 1;
+let numberOfPrefixes;
+let calculatedPossibilities = 0;
+
+// radio buttons
+let adjectiveOptionOne = document.getElementById('radio-one');
+let adjectiveOptionTwo = document.getElementById('radio-two');
+let adjectiveOptionThree = document.getElementById('radio-three');
+
+
+
+
+
+
+
+
+// initialize to dark mode
+document.body.className = 'dark-theme';
+btnToggle.className = 'btn-toggle btn-dark';
+icon.src="./lightmode.svg";
 
 
 
@@ -55,11 +77,14 @@ const genres = [
   "disco",
   "reggae",
   "ska",
-  "gospel",
   "breakbeat",
   "bounce",
   "edm",
-  "djent"
+  "djent",
+  "swing",
+  "phonk",
+  "sea-shanty",
+  "scat"
 ];
 
 const prefixes = [
@@ -89,16 +114,8 @@ const prefixes = [
   "gangsta",
   "acapella",
   "glitch",
-  "1920s",
-  "1930s",
-  "1940s",
-  "1950s",
-  "1960s",
-  "1970s",
-  "1980s",
-  "1990s",
-  "2000s",
-  "2010s",
+  "80s",
+  "90s",
   "latin",
   "gospel",
   "industrial",
@@ -176,12 +193,43 @@ const prefixes = [
   "soccer mom",
   "arrogant",
   "insane",
-  "abrasive"
+  "abrasive",
+  "medieval",
+  "sick",
+  "dope",
+  "stinky",
+  "meme",
+  "mathematical",
+  "fuckin",
+  "gamer",
+  "baked",
+  "raw",
+  "cooked",
+  "overcooked",
+  "sample",
+  "flammable",
+  "corrosive",
+  "poisonous",
+  "political",
+  "sticky",
+  "uninteresting",
+  "sour",
+  "salty",
+  "savory",
+  "sweet",
+  "nostalgic",
+  "cheesy",
+  "dangerous",
+  "rhythmic",
+  "harmonic",
+  "abstract"
 ];
 
 const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
 
 const feels = ["major", "minor"];
+
+const modes = ["dorian", "phrygian", "lydian", "mixolydian", "locrian", "aeolian", "ionian"]
 
 // generate random number
 const getRandom = (min, max) => {
@@ -190,20 +238,47 @@ const getRandom = (min, max) => {
   let randomNumber = Math.floor(step2) + min;
 
   return randomNumber;
-}
+};
 
 
-// reusable function to multiply array lengths, used to calculate total number of possible challenges
-const calculate = (a, b, c, d) => {return a.length * b.length * c.length * d.length};
-
+//  multiplies array lengths, used to calculate total number of possible challenges
+const calculate = (a, b, c, d, e, f, g, h) => {return a * b * c * d * e * f * g * h};
 
 // display total number of possible challenges
-possibilities.innerText = calculate(genres, prefixes, notes, feels);
+//possibilitiesBefore = calculate(genres.length, prefixes.length, notes.length, feels.length, 1, 1, 1, 1);
+possibilities.innerText = calculate(genres.length, prefixes.length, notes.length, feels.length, 1, 1, 1, 1).toLocaleString();
+
+// radio button functionality
+const radioButtonPrefixes = () => {
+  if (adjectiveOptionOne.checked) {
+  numberOfPrefixes = 1;
+    } 
+  else if (adjectiveOptionTwo.checked) {
+    numberOfPrefixes = 2;
+    } 
+  else if (adjectiveOptionThree.checked) {
+    numberOfPrefixes = 3;
+    }
+
+return numberOfPrefixes;
+};
+
+//random prefix functionality
+radioButtonPrefixes();
+const generateRandomPrefixes = (numberOfPrefixes) => {
+ let randomPrefixes = []; 
+  for (let i = 0; i < numberOfPrefixes; i++) {
+    let prefix = prefixes[getRandom(0, prefixes.length-1)];
+    randomPrefixes.push(prefix);
+  }
+  return randomPrefixes.join(" ");
+};
+
 
 // challenge generation button functionality
 btnRandom.addEventListener('click', () => {
-  let generatedPrefix = getRandom(0, prefixes.length-1);
-  randomPrefix.innerText = prefixes[generatedPrefix];
+
+  randomPrefix.innerText = generateRandomPrefixes(radioButtonPrefixes());
 
   let generatedGenre = getRandom(0, genres.length-1);
   randomGenre.innerText = genres[generatedGenre];
@@ -215,13 +290,16 @@ btnRandom.addEventListener('click', () => {
   randomFeel.innerText = feels[generatedFeel];
 
   prompt.innerText = "Your challenge is:";
+  prompt.className = ('prompt animation');
+  challenge.className = ('challenge animation-delayed');
   keyOf.innerText = "in the key of";
   btnRandom.innerText = "Too hard? Wanna give up and reroll?";
 });
 
+
 // light/dark mode functionality
 btnToggle.addEventListener('click', () => {
-  count+= 1;
+  count++;
 
   if (count % 2 === 0) {
     document.body.className = ('light-theme');
