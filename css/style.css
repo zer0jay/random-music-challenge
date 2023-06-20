@@ -8,6 +8,20 @@ body.dark-theme {
   color: white;
 }
 
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+}
+
+.options {
+  line-height: 25px;
+}
+
 .btn-light {
   padding: 0;
   width: max-content;
@@ -59,8 +73,9 @@ body.dark-theme {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 0.8rem;
   cursor: pointer;
+  margin: 5px;
 }
 
 button:hover {
@@ -97,4 +112,35 @@ a:hover {
   display: inline-block;
   position: relative;
   top: 2px;
+}
+
+@keyframes challenge-transition {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes transition-delayed {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animation {
+  animation: challenge-transition 1s linear;
+}
+
+.animation-delayed {
+  opacity: 0;
+  animation: transition-delayed 0.5s forwards;
+  animation-delay: 0.5s;
 }
