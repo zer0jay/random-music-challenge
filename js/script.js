@@ -15,6 +15,7 @@ let possibilities = document.querySelector('.possibilities');
 let themeIcon = document.querySelector('.theme-icon');
 let icon = document.querySelector('.icon');
 let challenge = document.querySelector('.challenge');
+let ghLogo = document.querySelector('.gh-logo');
 
 // global variables
 let totalCombinations;
@@ -37,7 +38,7 @@ let adjectiveOptionThree = document.getElementById('radio-three');
 // initialize to dark mode
 document.body.className = 'dark-theme';
 btnToggle.className = 'btn-toggle btn-dark';
-icon.src="./lightmode.svg";
+icon.src="./img/lightmode.svg";
 
 
 
@@ -309,11 +310,14 @@ btnToggle.addEventListener('click', () => {
   if (count % 2 === 0) {
     document.body.className = ('light-theme');
     btnToggle.className = ('btn-toggle btn-light');
-    icon.src="./darkmode.svg";
+    icon.src="./img/darkmode.svg";
+    ghLogo.src="./img/github-light.svg";
+
   } else {
     document.body.className = ('dark-theme');
     btnToggle.className = ('btn-toggle btn-dark');
-    icon.src="./lightmode.svg";
+    icon.src="./img/lightmode.svg";
+    ghLogo.src="./img/github-dark.svg";
   }
 });
 
