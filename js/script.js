@@ -84,7 +84,8 @@ const genres = [
   "swing",
   "phonk",
   "sea-shanty",
-  "scat"
+  "scat",
+  "ballad"
 ];
 
 const prefixes = [
@@ -245,6 +246,7 @@ const getRandom = (min, max) => {
 const calculate = (a, b, c, d, e, f, g, h) => {return a * b * c * d * e * f * g * h};
 
 // display total number of possible challenges
+// need to implement changing possibilities with # of prefixes
 possibilitiesBefore = calculate(genres.length, prefixes.length, notes.length, feels.length, 1, 1, 1, 1) * prefixes.length * prefixes.length * prefixes.length;
 possibilities.innerText = possibilitiesBefore.toLocaleString();
 
@@ -264,6 +266,7 @@ return numberOfPrefixes;
 };
 
 //random prefix functionality
+//remove duplicates, something like if prefixes[0] === prefixes[1], prefix[0].pop
 radioButtonPrefixes();
 const generateRandomPrefixes = (numberOfPrefixes) => {
  let randomPrefixes = []; 
@@ -273,6 +276,8 @@ const generateRandomPrefixes = (numberOfPrefixes) => {
   }
   return randomPrefixes.join(" ");
 };
+
+
 
 
 // challenge generation button functionality
