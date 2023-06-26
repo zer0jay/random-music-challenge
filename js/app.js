@@ -95,8 +95,7 @@ const findDuplicates = () => {
   if (uniquePrefixes.size === numberOfPrefixes) {
     finalPrefixArray = Array.from(uniquePrefixes);
   }
-  let sortedArray = finalPrefixArray.toSorted();
-  return sortedArray.join(" ");
+  return finalPrefixArray.join(" ");
 };
 
 // challenge generation button functionality
