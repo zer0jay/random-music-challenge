@@ -32,13 +32,16 @@
 
     <div class="options">How many prefixes?</div>
     <div class="checkbox-container">
-
-      <input type="radio" name="adjective-option" value="one" id="radio-one">
-      <label for="radio-one">One</label>
-      <input type="radio" name="adjective-option" value="two" id="radio-two">
-      <label for="radio-two">Two</label>
-      <input type="radio" name="adjective-option" value="three" id="radio-three">
-      <label for="radio-three">Three</label>
+      <form name="radioButtons">
+        <input type="radio" name="adjective-option" class="adj-none" value="none" id="radio-none" checked>
+        <label for="radio-none">None</label>
+        <input type="radio" name="adjective-option" class="adj-one" value="one" id="radio-one">
+        <label for="radio-one">One</label>
+        <input type="radio" name="adjective-option" value="two" class="adj-two" id="radio-two">
+        <label for="radio-two">Two</label>
+        <input type="radio" name="adjective-option" value="three" class="adj-three" id="radio-three">
+        <label for="radio-three">Three</label>
+      </form>
     </div>
     <div class="btn-container">
       <button class="btn">Generate</button>

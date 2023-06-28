@@ -22,18 +22,30 @@ let totalCombinations;
 let count = 1;
 let calculatedPossibilities = 0;
 let numberOfPrefixes = 0;
+let challengeCount = 0;
 
 // radio buttons
+let adjectiveOptionNone = document.getElementById('radio-none');
 let adjectiveOptionOne = document.getElementById('radio-one');
 let adjectiveOptionTwo = document.getElementById('radio-two');
 let adjectiveOptionThree = document.getElementById('radio-three');
 
 // initialize to dark mode
-document.body.className = 'dark-theme';
-btnToggle.className = 'btn-toggle btn-dark';
-icon.src="./img/lightmode.svg";
-ghLogo.src="./img/github-dark.svg";
+// document.body.className = 'dark-theme';
+// btnToggle.className = 'btn-toggle btn-dark';
+// icon.src="./img/lightmode.svg";
+// ghLogo.src="./img/github-dark.svg";
 
+function setDefaultState() {
+  numberOfPossibilities =(genres.length * notes.length *feels.length);
+  possibilities.innerText = numberOfPossibilities.toLocaleString();
+  document.body.className = 'dark-theme';
+  btnToggle.className = 'btn-toggle btn-dark';
+  icon.src="./img/lightmode.svg";
+  ghLogo.src="./img/github-dark.svg";
+};
+
+setDefaultState();
 // generate random number
 const getRandom = (min, max) => {
   let step1 = max - min + 1;
@@ -47,14 +59,49 @@ const getRandom = (min, max) => {
 //  multiplies array lengths, used to calculate total number of possible challenges
 const calculate = (a, b, c, d) => a * b * c * d;
 
+
 // display total number of possible challenges
 // need to implement changing possibilities with # of prefixes
-numberOfPossibilities = calculate(genres.length, prefixes.length, notes.length, feels.length) * prefixes.length * prefixes.length * prefixes.length;
-possibilities.innerText = numberOfPossibilities.toLocaleString();
+
+//possible solution
+let radio0 = document.querySelector('.adj-none');
+radio0.onclick = () => {
+  numberOfPossibilities = calculate(genres.length, 1, notes.length, feels.length);
+  possibilities.innerText = numberOfPossibilities.toLocaleString();
+  possibilities.classList.add('animation');
+};
+
+let radio1 = document.querySelector('.adj-one');
+radio1.onclick = () => {
+  numberOfPossibilities = calculate(genres.length, prefixes.length, notes.length, feels.length);
+  possibilities.innerText = numberOfPossibilities.toLocaleString();
+  possibilities.classList.add('animation');
+}
+
+let radio2 = document.querySelector('.adj-two');
+radio2.onclick = () => {
+  numberOfPossibilities = calculate(genres.length, prefixes.length**2, notes.length, feels.length);
+  possibilities.innerText = numberOfPossibilities.toLocaleString();
+  possibilities.classList.add('animation');
+};
+
+let radio3 = document.querySelector('.adj-three');
+radio3.onclick = () => {
+  numberOfPossibilities = calculate(genres.length, prefixes.length**3, notes.length, feels.length);
+  possibilities.innerText = numberOfPossibilities.toLocaleString();
+  possibilities.classList.add('animation');
+}
+
+possibilities.onanimationend = () => {
+  possibilities.classList.remove('animation');
+};
 
 // radio button functionality
-const radioButtonPrefixes = () => {
-  if (adjectiveOptionOne.checked) {
+const setNumberOfPrefixes = () => {
+  if (adjectiveOptionNone.checked) {
+    numberOfPrefixes = 0;
+  }
+  else if (adjectiveOptionOne.checked) {
   numberOfPrefixes = 1;
     } 
   else if (adjectiveOptionTwo.checked) {
@@ -66,11 +113,8 @@ const radioButtonPrefixes = () => {
   return numberOfPrefixes;
 };
 
-//find and replace duplicates?
-
-
 //random prefix functionality
-radioButtonPrefixes();
+setNumberOfPrefixes();
 const revisedPrefixGenerator = (numberOfPrefixes) => {
   let randomPrefixes = [];
   for (let i = 0; i < numberOfPrefixes; i++) {
@@ -81,8 +125,8 @@ const revisedPrefixGenerator = (numberOfPrefixes) => {
 };
 
 
-const findDuplicates = () => {
-  let newPrefixes = revisedPrefixGenerator(radioButtonPrefixes());
+const setFinalPrefixArray = () => {
+  let newPrefixes = revisedPrefixGenerator(setNumberOfPrefixes());
   let uniquePrefixes = new Set(newPrefixes);
   while (uniquePrefixes.size < numberOfPrefixes) {
     for (let i = 0; i < numberOfPrefixes - uniquePrefixes.size; i++){
@@ -101,8 +145,9 @@ const findDuplicates = () => {
 // challenge generation button functionality
 
 btnRandom.addEventListener('click', () => {
+  challengeCount++;
 
-  randomPrefix.innerText = findDuplicates();
+  randomPrefix.innerText = setFinalPrefixArray();
   let generatedGenre = getRandom(0, genres.length-1);
   randomGenre.innerText = genres[generatedGenre];
 
@@ -114,14 +159,23 @@ btnRandom.addEventListener('click', () => {
 
   prompt.innerText = "Your challenge is:";
   prompt.className = ('prompt animation');
-  challenge.className = ('challenge animation-delayed');
+  if (challengeCount === 1){
+    challenge.classList.add('animation-delayed');
+  } else {
+    challenge.classList.add('reroll-animation');
+  }
+  
   keyOf.innerText = "in the key of";
   btnRandom.innerText = "Too hard? Wanna give up and reroll?";
 });
 
-
-
-
+challenge.onanimationend = () => {
+  if (challengeCount === 1) {
+    challenge.classList.remove('animation-delayed');
+  } else {
+    challenge.classList.remove('reroll-animation');
+  }
+};
 
 // light/dark mode functionality
 btnToggle.addEventListener('click', () => {

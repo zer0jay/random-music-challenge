@@ -118,9 +118,7 @@ a:hover {
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0.5;
-  }
+
   100% {
     opacity: 1;
   }
@@ -136,13 +134,20 @@ a:hover {
 }
 
 .animation {
-  animation: challenge-transition 1s linear;
+  animation: challenge-transition 500ms linear;
+  animation-iteration-count: 1;
 }
 
 .animation-delayed {
   opacity: 0;
-  animation: transition-delayed 0.5s forwards;
+  animation: transition-delayed 500ms forwards;
   animation-delay: 0.5s;
+}
+
+.reroll-animation {
+  opacity: 0;
+  animation: transition-delayed 400ms forwards;
+  animation-delay: 50ms;
 }
 
 @media screen and (max-width: 750px) {
