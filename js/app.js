@@ -6,6 +6,9 @@ let btnHardMode = document.querySelector('.hard-mode');
 // DOM objects
 let prompt = document.querySelector('h2');
 let randomPrefix = document.querySelector('.randomPrefix');
+let prefix1 = document.getElementById('prefix1');
+let prefix2 = document.getElementById('prefix2');
+let prefix3 = document.getElementById('prefix3');
 let randomGenre = document.querySelector('.randomGenre');
 let randomNote = document.querySelector('.randomNote');
 let randomFeel = document.querySelector('.randomFeel');
@@ -142,12 +145,28 @@ const setFinalPrefixArray = () => {
   return finalPrefixArray.join(" ");
 };
 
+
+
 // challenge generation button functionality
 
 btnRandom.addEventListener('click', () => {
   challengeCount++;
+  setFinalPrefixArray();
+  //randomPrefix.innerText = setFinalPrefixArray();
+  if (finalPrefixArray.length === 1){
+    prefix1.innerText = finalPrefixArray[0];
+  }
+  else if (finalPrefixArray.length === 2) {
+    prefix1.innerText = finalPrefixArray[0];
+    prefix2.innerText = finalPrefixArray[1];
+  }
+  else if (finalPrefixArray.length === 3) {
+    prefix1.innerText = finalPrefixArray[0];
+    prefix2.innerText = finalPrefixArray[1];
+    prefix3.innerText = finalPrefixArray[2]
+  }
+  
 
-  randomPrefix.innerText = setFinalPrefixArray();
   let generatedGenre = getRandom(0, genres.length-1);
   randomGenre.innerText = genres[generatedGenre];
 

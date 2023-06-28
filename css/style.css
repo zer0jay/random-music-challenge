@@ -155,3 +155,22 @@ a:hover {
     font-size: 1.2rem;
   }
 }
+
+.prefix:nth-child(1) {
+  color: #b799ff;
+}
+
+.prefix:nth-child(2) {
+  color: #acbcff;
+}
+
+.prefix:nth-child(3) {
+  color: #aee2ff;
+}
+
+.randomPrefix {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
