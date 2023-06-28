@@ -19,6 +19,8 @@ let themeIcon = document.querySelector('.theme-icon');
 let icon = document.querySelector('.icon');
 let challenge = document.querySelector('.challenge');
 let ghLogo = document.querySelector('.gh-logo');
+//let prefixColors = document.querySelector('span.randomPrefix.prefixColors > span');
+let prefixColors = document.querySelectorAll('span span');
 
 // global variables
 let totalCombinations;
@@ -46,6 +48,7 @@ function setDefaultState() {
   btnToggle.className = 'btn-toggle btn-dark';
   icon.src="./img/lightmode.svg";
   ghLogo.src="./img/github-dark.svg";
+  //prefixColors.className = ('prefixDark');
 };
 
 setDefaultState();
@@ -167,6 +170,11 @@ btnRandom.addEventListener('click', () => {
     prefix1.innerText = finalPrefixArray[0];
     prefix2.innerText = finalPrefixArray[1];
     prefix3.innerText = finalPrefixArray[2];
+  } 
+  else {
+    prefix1.innerText = "";
+    prefix2.innerText = "";
+    prefix3.innerText = "";
   }
   
 
@@ -202,14 +210,17 @@ challenge.onanimationend = () => {
 // light/dark mode functionality
 btnToggle.addEventListener('click', () => {
   count++;
+  prefixColors.forEach((prefixColor => {
+    prefixColor.classList.toggle('prefixLight');
+  }));
 
-  if (count % 2 === 0) {
+  if (count % 2 === 0) { //light mode
     document.body.className = ('light-theme');
     btnToggle.className = ('btn-toggle btn-light');
     icon.src="./img/darkmode.svg";
     ghLogo.src="./img/github-light.svg";
 
-  } else {
+  } else { // dark mode
     document.body.className = ('dark-theme');
     btnToggle.className = ('btn-toggle btn-dark');
     icon.src="./img/lightmode.svg";

@@ -66,7 +66,7 @@ body.dark-theme {
 }
 
 .btn {
-  background-color: #41aea9;
+  background-color: #0079ff;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -79,7 +79,7 @@ body.dark-theme {
 }
 
 button:hover {
-  background-color: #34837f;
+  background-color: #0077ffbe;
 }
 
 span {
@@ -156,21 +156,26 @@ a:hover {
   }
 }
 
-.prefix:nth-child(1) {
-  color: #b799ff;
+.prefixDark:nth-child(1) {
+  color: #ff0060;
 }
 
-.prefix:nth-child(2) {
-  color: #acbcff;
+.prefixDark:nth-child(2) {
+  color: #00dfa2;
 }
 
-.prefix:nth-child(3) {
-  color: #aee2ff;
+.prefixDark:nth-child(3) {
+  color: #0079ff;
 }
 
-.randomPrefix {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+.prefixLight:nth-child(1) {
+  color: #d2277a;
+}
+
+.prefixLight:nth-child(2) {
+  color: #865dff;
+}
+
+.prefixLight:nth-child(3) {
+  color: #0079ff;
 }
