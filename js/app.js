@@ -155,15 +155,18 @@ btnRandom.addEventListener('click', () => {
   //randomPrefix.innerText = setFinalPrefixArray();
   if (finalPrefixArray.length === 1){
     prefix1.innerText = finalPrefixArray[0];
+    prefix2.innerText = "";
+    prefix3.innerText = "";
   }
   else if (finalPrefixArray.length === 2) {
     prefix1.innerText = finalPrefixArray[0];
     prefix2.innerText = finalPrefixArray[1];
+    prefix3.innerText = "";
   }
   else if (finalPrefixArray.length === 3) {
     prefix1.innerText = finalPrefixArray[0];
     prefix2.innerText = finalPrefixArray[1];
-    prefix3.innerText = finalPrefixArray[2]
+    prefix3.innerText = finalPrefixArray[2];
   }
   
 
