@@ -133,7 +133,8 @@ const prefixes = [
   "dangerous",
   "rhythmic",
   "harmonic",
-  "abstract"
+  "abstract",
+  "good"
 ];
 
 
@@ -182,7 +183,8 @@ const genres = [
   "phonk",
   "sea-shanty",
   "scat",
-  "ballad"
+  "ballad",
+  "lullaby"
 ];
 
 const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];

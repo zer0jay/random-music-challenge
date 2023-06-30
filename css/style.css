@@ -105,7 +105,7 @@ a {
 }
 
 a:hover {
-  color: #34837f;
+  color: #0079ff;
 }
 
 .gh-logo {
@@ -157,7 +157,7 @@ a:hover {
 }
 
 .prefixDark:nth-child(1) {
-  color: #ff0060;
+  color: #0079ff;
 }
 
 .prefixDark:nth-child(2) {
@@ -165,11 +165,11 @@ a:hover {
 }
 
 .prefixDark:nth-child(3) {
-  color: #0079ff;
+  color: #ff0060;
 }
 
 .prefixLight:nth-child(1) {
-  color: #d2277a;
+  color: #0079ff;
 }
 
 .prefixLight:nth-child(2) {
@@ -177,5 +177,5 @@ a:hover {
 }
 
 .prefixLight:nth-child(3) {
-  color: #0079ff;
+  color: #d2277a;
 }
